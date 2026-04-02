@@ -32,4 +32,9 @@ models:
         tests:
           - not_null
 
+      - name: INCOME
+        description: "total income per year"
+        tests:
+          - not_null
+
       
