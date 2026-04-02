@@ -18,7 +18,7 @@ with cleaned as(
   ABS(COALESCE(TRY_CAST(TRIM(DEBT_TO_INCOME_RATIO) AS NUMERIC(8,7)),	0)),
   
   COALESCE(TRIM(LOAN_PURPOSE), 'NA'),
-  COALESCE(TRIM(LOAN_STATUS), 'NA')
+  COALESCE(INITCAP(TRIM(LOAN_STATUS)), 'NA')
  
   from {{ source('source_credit_risk_analysis', 'SHEET1') }}
   )
