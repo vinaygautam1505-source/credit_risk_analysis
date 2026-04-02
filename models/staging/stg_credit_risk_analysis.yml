@@ -78,5 +78,3 @@ models:
         description: "current loan status"
         tests:
           - not_null
-
-      -
