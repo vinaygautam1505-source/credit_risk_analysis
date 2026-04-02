@@ -5,126 +5,77 @@ models:
     description: "cleared staging view"
 
     columns:
-      - name: PRODUCT_ID
-        description: "product unique code"
+      - name: CUSTOMER_ID
+        description: "customer unique identity code"
         tests:
           - not_null
           - unique
 
-      - name: PRODUCT_NAME
-        description: "iteam name"
+      - name: AGE
+        description: "customer current age"
         tests:
           - not_null
 
-      - name: CATEGORY
-        description: "iteam type"
+      - name: GENDER
+        description: "customers gender identity"
         tests:
           - not_null
 
-      - name: BRAND
-        description: "iteam brand name"
+      - name: CITY
+        description: "customer living current city"
         tests:
           - not_null
 
-      - name: SELLER
-        description: "seller name"
+      - name: EMPLOYMENT_STATUS
+        description: "customer employment status"
         tests:
           - not_null
 
-      - name: SELLER_CITY
-        description: "seller city"
+      - name: COMPANY_TYPE
+        description: "company type where customer working"
         tests:
           - not_null
 
-      - name: PRICE
-        description: "product price"
+      - name: INCOME
+        description: "total income per year"
         tests:
           - not_null
 
-      - name: DISCOUNT_PERCENT
-        description: "discounts"
+      - name: CIBIL_SCORE
+        description: "cibil score rating"
         tests:
           - not_null
 
-      - name: FINAL_PRICE
-        description: "final_price"
+      - name: LOAN_AMOUNT
+        description: "sanctioned loan amount"
+          - not_null
+
+      - name: INTEREST_RATE
+        description: "interest rate per anuum"
         tests:
           - not_null
 
-      - name: RATING
-        description: "product rating"
+      - name: LOAN_TENURE_MONTHS
+        description: "loan tenure in months"
         tests:
           - not_null
 
-      - name: REVIEW_COUNT
-        description: "rating rating"
+      - name: EXISTING_LOANS
+        description: "current running obligations"
         tests:
           - not_null
 
-      - name: STOCK_AVAILABLE
-        description: "availabe stock quantity"
+      - name: DEBT_TO_INCOME_RATIO
+        description: "foir income to emi ratio"
+
+      - name: LOAN_PURPOSE
+        description: "customers loan end use "
         tests:
           - not_null
 
-      - name: UNITS_SOLD
-        description: "product sold quantity"
-
-      - name: LISTING_DATE
-        description: "product listing date"
+      - name: LOAN_STATUS
+        description: "current loan status"
         tests:
           - not_null
 
-      - name: DELIVERY_DAYS
-        description: "delivery tat"
-        tests:
-          - not_null
-
-      - name: WEIGHT_GM
-        description: "product weight"
-        tests:
-          - not_null
-
-      - name: WARRANTY_MONTHS
-        description: "total warranty months"
-        tests:
-          - not_null
-
-      - name: COLOR
-        description: "color"
-        tests:
-          - not_null
-
-      - name: SIZE
-        description: "size"
-        tests:
-          - not_null
-
-      - name: RETURN_POLICY_DAYS
-        description: "return policy days"
-        tests:
-          - not_null
-
-      - name: IS_RETURNABLE
-        description: "return or not"
-        tests:
-          - not_null
-
-      - name: PAYMENT_MODES
-        description: "payment type"
-        tests:
-          - not_null
-
-      - name: SHIPPING_WEIGHT_GM
-        description: "weight at the time of shipping"
-        tests:
-          - not_null
-
-      - name: PRODUCT_SCORE
-        description: "product score"
-        tests:
-          - not_null
-
-      - name: SELLER_RATING
-        description: "seller total ratings"
-        tests:
-          - not_null
+      -
