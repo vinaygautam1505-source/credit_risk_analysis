@@ -48,6 +48,7 @@ models:
 
       - name: LOAN_AMOUNT
         description: "sanctioned loan amount"
+        tests:
           - not_null
 
       - name: INTEREST_RATE
