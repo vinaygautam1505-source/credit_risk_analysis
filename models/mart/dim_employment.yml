@@ -9,7 +9,7 @@ models:
         description: "customer employment status"
         tests:
           - not_null
-          - dbt_utils.expression_is_true:
+          - accepted_values:
               arguments:
                 expression: ['Salaried', 'Self-Employed', 'Student', 'Unemployed', 'NA']
 
