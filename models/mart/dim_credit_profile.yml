@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_loan
+  - name: dim_credit_profile
     description: "loan dimension table"
 
     columns:
