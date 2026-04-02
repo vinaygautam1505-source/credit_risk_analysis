@@ -21,7 +21,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['Paid', 'Default']
+                values: ['Paid', 'Default', 'NA']
 
       - name: CUSTOMER_ID
         description: "customer unique identity code"
