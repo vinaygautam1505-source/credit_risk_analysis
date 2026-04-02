@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "customer dimension table"
+
+    columns:
+      - name: CUSTOMER_ID
+        description: "Unique customer identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: AGE
+        description: "customer current age"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "{{ column name }} >= 21"
+
+      - name: GENDER
+        description: "customers gender identity"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Male', 'Female', 'Other']
+
+      - name: CITY
+        description: "customers current city name"
+        tests:
+          - not_null
+
+      
