@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_employment
+    description: "employment dimension table"
+
+    columns:
+      - name: EMPLOYMENT_STATUS
+        description: "customer employment status"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ["Salaried", "Self-Employed", "Student", "Unemployed", "NA"]
+
+      - name: COMPANY_TYPE
+        description: "company type where customer working"
+        tests:
+          - not_null
+
+      - name: INCOME
+        description: "total income per year"
+        tests:
+          - not_null
