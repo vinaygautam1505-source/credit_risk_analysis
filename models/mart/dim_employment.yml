@@ -22,3 +22,11 @@ models:
         description: "total income per year"
         tests:
           - not_null
+
+      - name: CUSTOMER_ID
+        description: " customer unique identity"
+        tests:
+          - not_null
+          - unique
+       
+          
