@@ -22,7 +22,7 @@ models:
           - not_null
           - dbt_utils.expression_is_true:
               arguments:
-                expression: "{{ column_name}} BETWEEN 7 AND 24"
+                values: "{{ column_name}} BETWEEN 7 AND 24"
 
       - name: LOAN_TENURE_MONTHS
         description: "loan tenure in months"
@@ -30,7 +30,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                expression: [12, 24, 36, 48, 60, 72]
+                values: [12, 24, 36, 48, 60, 72]
 
       - name: DEBT_TO_INCOME_RATIO
         description: "foir income to emi ratio"
