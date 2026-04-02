@@ -17,7 +17,7 @@ models:
           - not_null
           - dbt_utils.expression_is_true:
               arguments:
-                expression: "{{ column name }} >= 21"
+                expression: "{{ column_name }} >= 21"
 
       - name: GENDER
         description: "customers gender identity"
