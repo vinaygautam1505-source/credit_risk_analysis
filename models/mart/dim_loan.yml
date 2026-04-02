@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_loan
+    description: "loan dimension table"
+
+    columns:
+      - name: EXISTING_LOANS
+        description: "current running obligations"
+        tests:
+          - not_null
+
+      - name: LOAN_PURPOSE
+        description: "customers loan end use "
+        tests:
+          - not_null
+
+      - name: LOAN_STATUS
+        description: "current loan status"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                expression: ['Paid', 'Default']
+
+      - name: CUSTOMER_ID
+        description: "customer unique identity code"
+        tests:
+          - not_null
+          - unique
