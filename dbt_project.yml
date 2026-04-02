@@ -22,15 +22,7 @@ models:
       +persist_docs:
         relation: true
         columns: true
-          
-    intermediate_mart: 
-      +materialized: table
-      +meta:
-        on_schema_change: sync_all_columns
-      +tags: ['intermediate']
-      +persist_docs:
-        relation: true
-        columns: true
+  
           
     mart:  
       +materialized: table
@@ -41,11 +33,6 @@ models:
         relation: true
         columns: true
 
-snapshots:
-  +materialized: snapshot
-  +meta:
-    on_schema_change: sync_all_columns
-  +strategy: 'timestamp'
-  +unique_key: 'CUSTOMER_ID'
+
 
     
