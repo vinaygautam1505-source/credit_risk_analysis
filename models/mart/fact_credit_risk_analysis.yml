@@ -22,7 +22,7 @@ models:
           - not_null
           - dbt_utils.expression_is_true:
               arguments:
-                values: "{{ column_name}} BETWEEN 7 AND 24"
+                expression: "{{ column_name}} BETWEEN 7 AND 24"
 
       - name: LOAN_TENURE_MONTHS
         description: "loan tenure in months"
