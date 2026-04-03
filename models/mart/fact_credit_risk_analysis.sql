@@ -5,4 +5,4 @@ INTEREST_RATE,
 LOAN_TENURE_MONTHS,
 DEBT_TO_INCOME_RATIO,
 CUSTOMER_ID
-FRO {{ ref('stg_credit_risk_analysis') }}
+FROM {{ ref('stg_credit_risk_analysis') }}
