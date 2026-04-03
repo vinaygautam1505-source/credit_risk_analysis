@@ -5,6 +5,13 @@ models:
     description: "employment dimension table"
 
     columns:
+
+      - name: CUSTOMER_ID
+        description: " customer unique identity"
+        tests:
+          - not_null
+          - unique
+          
       - name: EMPLOYMENT_STATUS
         description: "customer employment status"
         tests:
@@ -22,11 +29,5 @@ models:
         description: "total income per year"
         tests:
           - not_null
-
-      - name: CUSTOMER_ID
-        description: " customer unique identity"
-        tests:
-          - not_null
-          - unique
        
           
