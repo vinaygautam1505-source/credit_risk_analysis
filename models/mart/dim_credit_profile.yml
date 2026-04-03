@@ -28,4 +28,4 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['Paid', 'Default', 'Na']
+                values: ['PAID', 'DEFAULT', 'NA']
