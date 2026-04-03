@@ -2,5 +2,5 @@ SELECT
 CUSTOMER_ID,
 AGE,
 GENDER,
-CITY,
+CITY
 FROM {{ref('stg_credit_risk_analysis') }}
