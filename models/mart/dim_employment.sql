@@ -1,6 +1,6 @@
 SELECT
+CUSTOMER_ID,
 EMPLOYMENT_STATUS,
 COMPANY_TYPE,
-INCOME,
-CUSTOMER_ID
+INCOME
 FROM {{ ref('stg_credit_risk_analysis') }}
