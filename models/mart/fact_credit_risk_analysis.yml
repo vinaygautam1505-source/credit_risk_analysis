@@ -5,7 +5,6 @@ models:
     description: "fact table of credit risk analysis"
 
     columns:
-    
       - name: CIBIL_SCORE
         description: "cibil score rating"
         tests:
