@@ -5,6 +5,13 @@ models:
     description: "fact table of credit risk analysis"
 
     columns:
+
+      - name: CUSTOMER_ID
+        description: "customer unique identity code"
+        tests:
+          - not_null
+          - unique
+
       - name: CIBIL_SCORE
         description: "cibil score rating"
         tests:
@@ -38,10 +45,3 @@ models:
           - dbt_utils.expression_is_true:
               arguments:
                 expression: "{{column_name}} BETWEEN 0 AND 1"
-            
-
-      - name: CUSTOMER_ID
-        description: "customer unique identity code"
-        tests:
-          - not_null
-          - unique
