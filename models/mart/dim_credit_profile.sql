@@ -1,6 +1,6 @@
 SELECT
+EXISTING_LOANS,
 LOAN_PURPOSE,
-  EXISTING_LOANS,
 LOAN_STATUS,
 CUSTOMER_ID
 FROM {{ ref('stg_credit_risk_analysis') }}
