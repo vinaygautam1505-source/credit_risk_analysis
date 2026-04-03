@@ -5,6 +5,13 @@ models:
     description: "loan dimension table"
 
     columns:
+    
+      - name: CUSTOMER_ID
+        description: "customer unique identity code"
+        tests:
+          - not_null
+          - unique
+          
       - name: EXISTING_LOANS
         description: "current running obligations"
         tests:
@@ -22,9 +29,3 @@ models:
           - accepted_values:
               arguments:
                 values: ['Paid', 'Default', 'Na']
-
-      - name: CUSTOMER_ID
-        description: "customer unique identity code"
-        tests:
-          - not_null
-          - unique
