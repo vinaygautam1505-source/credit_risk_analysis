@@ -18,7 +18,12 @@ with cleaned as(
   ABS(COALESCE(TRY_CAST(TRIM(DEBT_TO_INCOME_RATIO) AS NUMERIC(8,7)),	0)),
   
   COALESCE(TRIM(LOAN_PURPOSE), 'NA'),
-  LOWER(TRIM(LOAN_STATUS)),
+  CASE
+  WHEN UPPER(TRIM(LOAN_STATUS)) = 'PAID' THEN 'Paid'
+  WHEN UPPER(TRIM(LOAN_STATUS)) = 'DEFAULT' THEN 'Default'
+  WHEN TRIM(LOAN_STATUS) = '' OR LOAN_STATUS IS NULL THEN 'Na'
+  ELSE 'Na'
+END
  
   from {{ source('source_credit_risk_analysis', 'SHEET1') }}
   )
