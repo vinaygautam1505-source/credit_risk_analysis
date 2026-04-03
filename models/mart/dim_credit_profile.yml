@@ -5,13 +5,14 @@ models:
     description: "loan dimension table"
 
     columns:
-      - name: EXISTING_LOANS
-        description: "current running obligations"
-        tests:
-          - not_null
 
       - name: LOAN_PURPOSE
         description: "customers loan end use "
+        tests:
+          - not_null
+
+      - name: EXISTING_LOANS
+        description: "current running obligations"
         tests:
           - not_null
 
