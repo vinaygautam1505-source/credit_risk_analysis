@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_total_risk_identification
+    description: "Total risk identification of customer defaults including total customers, default customers, and default rate percentage"
+
+    columns:
+
+      - name: TOTAL_CUSTOMERS
+        description: "Total number of customers in the dataset"
+        tests:
+          - not_null
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers whose loan status is Default"
+        tests:
+          - not_null
+
+      - name: DEFAULT_RATE
+        description: "Percentage of customers who have defaulted"
+        tests:
+          - not_null
