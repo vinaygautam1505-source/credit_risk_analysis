@@ -29,7 +29,7 @@ models:
       - name: DTI_RISK_BUCKET
         description: "DTI risk bucket with using diffrent flags"
 
-      - name: FINAL_RISK_BUCKET
+      - name: FINAL_RISK_FLAG
         description: "final risk flag with using diffrent flags on diffrent conditions"
         tests:
           - not_null
