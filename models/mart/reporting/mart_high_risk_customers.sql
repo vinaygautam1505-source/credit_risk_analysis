@@ -35,7 +35,7 @@ f.DEBT_TO_INCOME_RATIO,
   THEN 'Risky'
 
   ELSE 'No_Risk'
-  END AS Final_Risk_Flag
+  END AS FINAL_RISK_FLAG
   
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
