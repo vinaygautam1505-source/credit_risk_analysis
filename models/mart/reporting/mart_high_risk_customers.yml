@@ -2,11 +2,14 @@ version: 2
 
 models: 
   - name: mart_high_risk_customers
-    description: "high risk customer data using "high_risky, "risky", "no_risky" flags".
+    description: "high risk customer data using diffrent flags".
 
     columns:
       - name: CUSTOMER_ID
         description: "customer unique identity"
+        tests:
+          - not_null
+          - unique
 
       - name: CIBIL_SCORE
         description: "customer cibil score data"
