@@ -1,1 +1,5 @@
-
+SELECT 
+  COUNT(*) AS TOTAL_CUSTOMERS, 
+  COUNT_IF(LOAN_STATUS='Default') AS DEFAULT_CUSTOMERS,
+ROUND((COUNT_IF(LOAN_STATUS='Default') *100)/  COUNT(*),2) AS DEFAULT_RATE
+FROM {{ ref('stg_credit_risk_analysis') }}
