@@ -25,7 +25,7 @@ e.EMPLOYMENT_STATUS,
   ) AS DEFAULT_RATE
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
-  JOIN {{ ref('dim_employee') }} e
+  JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e.CUSTOMER_ID
   JOIN {{ ref('dim_credit_profile')}} c
   ON f.CUSTOMER_ID = c.CUSTOMER_ID
