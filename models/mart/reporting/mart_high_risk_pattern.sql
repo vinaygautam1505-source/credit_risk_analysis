@@ -1,0 +1,34 @@
+SELECT
+
+e.EMPLOYMENT_STATUS,
+  
+  CASE 
+    WHEN f.CIBIL_SCORE < 600 THEN 'Poor'
+    WHEN f.CIBIL_SCORE < 700 THEN 'Average'
+    WHEN f.CIBIL_SCORE < 750 THEN 'Good'
+    ELSE 'Excellent'
+  END AS CIBIL_BUCKET,
+  
+  CASE
+    WHEN e.INCOME < 300000 THEN 'Poor_Income'
+    WHEN e.INCOME < 700000 THEN 'Medium_Income'
+    ELSE 'HIGH_INCOME'
+  END AS INCOME_BUCKET,
+
+  COUNT(*) AS TOTAL_CUSTOMERS,
+
+  COUNT_IF(c.LOAN_STATUS = 'Default') AS DEFAULT_CUSTOMERS,
+
+  ROUND(
+    COUNT_IF(c.LOAN_STATUS = 'Default') * 100.0 / COUNT(*),
+    2
+  ) AS DEFAULT_RATE
+
+FROM {{ ref('fact_credit_risk_analysis') }} f
+  JOIN {{ ref('dim_employee') }} e
+  ON f.CUSTOMER_ID = e.CUSTOMER_ID
+  JOIN {{ ref('dim_credit_profile')}} c
+  ON f.CUSTOMER_ID = c.CUSTOMER_ID
+
+GROUP BY CIBIL_BUCKET, INCOME_BUCKET, e.EMPLOYMENT_STATUS
+ORDER BY DEFAULT_RATE DESC;
