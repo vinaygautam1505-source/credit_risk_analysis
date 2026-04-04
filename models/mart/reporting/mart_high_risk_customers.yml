@@ -1,0 +1,37 @@
+version: 2
+
+models: 
+  - name: mart_high_risk_customers
+    description: "high risk customer data using "high_risky, "risky", "no_risky" flags".
+
+    columns:
+      - name: CUSTOMER_ID
+        description: "customer unique identity"
+
+      - name: CIBIL_SCORE
+        description: "customer cibil score data"
+
+      - name: INCOME
+        description: "customer total yearly income"
+
+      - name: DEBT_TO_INCOME_RATIO
+        description: "debt to loan ratio i.e FOIR"
+
+      - name: CIBIL_RISK_BUCKET
+        description: " cibil risk bucket with using diffrent flags"
+
+      - name: INCOME_RISK_BUCKET
+        description: "income risk bucket with using diffrent flags"
+
+      - name: DTI_RISK_BUCKET
+        description: "DTI risk bucket with using diffrent flags"
+
+      - name: FINAL_RISK_BUCKET
+        description: "final risk flag with using diffrent flags on diffrent conditions"
+        tests:
+          - not_null
+          - accepted_values
+              arguments:
+                values: ['High_Risk', 'Risky', 'No_Risk']
+
+
