@@ -33,7 +33,7 @@ models:
         description: "final risk flag with using diffrent flags on diffrent conditions"
         tests:
           - not_null
-          - accepted_values
+          - accepted_values:
               arguments:
                 values: ['High_Risk', 'Risky', 'No_Risk']
 
