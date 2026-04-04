@@ -1,0 +1,47 @@
+SELECT
+c.CUSTOMER_ID,
+f.CIBIL_SCORE,
+e.INCOME,
+f.DEBT_TO_INCOME_RATIO,
+
+  
+  CASE
+   WHEN f.CIBIL_SCORE < 600 THEN 'Highly_Risky'
+  WHEN f.CIBIL_SCORE < 700 THEN 'Risky'
+  ELSE 'No_Risk'
+  END AS CIBIL_RISK_BUCKET,
+
+  CASE
+   WHEN e.INCOME < 300000 THEN 'Highly_Risky'
+  WHEN e.INCOME < 450000 THEN 'Risky'
+  ELSE 'No_Risk'
+  END AS INCOME_RISK_BUCKET,
+
+  CASE
+   WHEN f.DEBT_TO_INCOME_RATIO > 0.700000 THEN 'Highly_Risky'
+  WHEN f.DEBT_TO_INCOME_RATIO > 0.600000 THEN 'Risky'
+  ELSE 'No_Risk'
+  END AS DTI_RISK_BUCKET,
+
+  CASE
+  WHEN f.CIBIL_SCORE < 600
+  OR e.INCOME < 300000
+  OR f.DEBT_TO_INCOME_RATIO > 0.700000
+  THEN 'High_Risk'
+
+  WHEN f.CIBIL_SCORE < 700
+  OR e.INCOME < 450000
+   OR f.DEBT_TO_INCOME_RATIO > 0.600000
+  THEN 'Risky'
+
+  ELSE 'No_Risk'
+  END AS Final_Risk_Flag
+  
+
+FROM {{ ref('fact_credit_risk_analysis') }} f
+ JOIN {{ ref('dim_customer') }} c
+  ON f.CUSTOMER_ID = c.CUSTOMER_ID
+
+ JOIN {{ ref('dim_employment') }} e
+  ON f.CUSTOMER_ID = e.CUSTOMER_ID
+
