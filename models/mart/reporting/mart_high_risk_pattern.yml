@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: mart_high_risk_pattern
+    description: "hih risk pattern analysis with number of total customers, default customersand default rates based on cibil_score, employment_status and income"
+    columns:
+
+      - name: EMPLOYMENT_STATUS
+        description: "Customer current employment type ( SELF_EMPLOYED, SALARIED)"
+        tests:
+          - not_null
+
+      - name: CIBIL_BUCKET
+        description: "cibil score bucket (Poor, Average, Good, Excellent)"
+        tests:
+          - not_null
+
+      - name: INCOME_BUCKET
+        description: "income level bucket (Low, Medium, High)"
+        tests:
+          - not_null
+
+      - name: TOTAL_CUSTOMERS
+        description: "Total customers in each segment"
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted"
+
+      - name: DEFAULT_RATE
+        description: "Percentage of customers who defaulted in each segment"
