@@ -8,14 +8,14 @@ WHEN f.CIBIL_SCORE BETWEEN 701 AND 725 THEN 'On-Call'
 ELSE 'Approve'
 END AS CIBIL_RANGE,
 
-COUNT_IF (c.LOAN_STATUS = 'Default') * 100 / COUNT(*) AS DEFAULT_RATE,
+COUNT_IF (l.LOAN_STATUS = 'Default') * 100 / COUNT(*) AS DEFAULT_RATE,
 
-COUNT_IF (c.LOAN_STATUS = 'Default') AS TOTAL_DEFAULT_CUSTOMERS
+COUNT_IF (l.LOAN_STATUS = 'Default') AS TOTAL_DEFAULT_CUSTOMERS
   
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
-JOIN {{ ref('dim_credit_profile') }} c
-ON f.CUSTOMER_ID = c.CUSTOMER_ID
+JOIN {{ ref('dim_credit_profile') }} l
+ON f.CUSTOMER_ID = l.CUSTOMER_ID
 
 GROUP BY CIBIL_RANGE
 ORDER BY CIBIL_RANGE ASC
