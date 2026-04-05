@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_customer
+  - name: DIM_CUSTOMER
     description: "customer dimension table"
 
     columns:
