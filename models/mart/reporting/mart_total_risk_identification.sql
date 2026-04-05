@@ -2,4 +2,4 @@ SELECT
   COUNT(CUSTOMER_ID) AS TOTAL_CUSTOMERS, 
   COUNT_IF(LOAN_STATUS='Default') AS DEFAULT_CUSTOMERS,
 ROUND((COUNT_IF(LOAN_STATUS='Default') *100)/  COUNT(CUSTOMER_ID), 2) AS DEFAULT_RATE
-FROM {{ ref('dim_credit_profile') }}
+FROM {{ ref('dim_loan_profile') }}
