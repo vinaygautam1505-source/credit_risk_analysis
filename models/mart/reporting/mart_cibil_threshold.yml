@@ -1,7 +1,7 @@
 
 version: 2
 models:
-  - name: MART_CIBIL_THRESHOLD
+  - name: mart_cibil_threshold
     description: "cibil threshold using different ranges of cibil score with the default rating and number of default customers"
 
     columns:
