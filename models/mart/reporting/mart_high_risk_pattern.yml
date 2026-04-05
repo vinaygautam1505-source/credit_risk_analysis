@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: mart_high_risk_pattern
+  - name: MART_HIGH_RISK_PATTERN
     description: "hih risk pattern analysis with number of total customers, default customersand default rates based on cibil_score, employment_status and income"
     columns:
 
