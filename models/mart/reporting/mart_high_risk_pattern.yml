@@ -5,8 +5,8 @@ models:
     description: "hih risk pattern analysis with number of total customers, default customersand default rates based on cibil_score, employment_status and income"
     columns:
 
-      - name: EMPLOYMENT_STATUS
-        description: "Customer current employment type ( SELF_EMPLOYED, SALARIED)"
+      - name: ROI_BUCKET
+        description: "roi bucket"
         tests:
           - not_null
 
