@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: mart_total_risk_identification
+  - name: MART_TOTAL_RISK_IDENTIFICATION
     description: "Total risk identification of customer defaults including total customers, default customers, and default rate percentage"
 
     columns:
