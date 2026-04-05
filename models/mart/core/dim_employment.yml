@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_employment
+  - name: DIM_EMPLOYMENT
     description: "employment dimension table"
 
     columns:
