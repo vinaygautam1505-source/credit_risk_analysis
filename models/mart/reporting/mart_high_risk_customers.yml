@@ -1,7 +1,7 @@
 version: 2
 
 models: 
-  - name: mart_high_risk_customers
+  - name: MART_HIGH_RISK_CUSTOMERS
     description: "high risk customer data using diffrent flags"
 
     columns:
