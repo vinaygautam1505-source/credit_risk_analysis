@@ -17,18 +17,18 @@ e.EMPLOYMENT_STATUS,
 
   COUNT(*) AS TOTAL_CUSTOMERS,
 
-  COUNT_IF(c.LOAN_STATUS = 'Default') AS DEFAULT_CUSTOMERS,
+  COUNT_IF(l.LOAN_STATUS = 'Default') AS DEFAULT_CUSTOMERS,
 
   ROUND(
-    COUNT_IF(c.LOAN_STATUS = 'Default') * 100.0 / COUNT(*),
+    COUNT_IF(l.LOAN_STATUS = 'Default') * 100.0 / COUNT(*),
     2
   ) AS DEFAULT_RATE
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
   JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e.CUSTOMER_ID
-  JOIN {{ ref('dim_credit_profile')}} c
-  ON f.CUSTOMER_ID = c.CUSTOMER_ID
+  JOIN {{ ref('dim_credit_profile')}} l
+  ON f.CUSTOMER_ID = l.CUSTOMER_ID
 
 GROUP BY CIBIL_BUCKET, INCOME_BUCKET, e.EMPLOYMENT_STATUS
 ORDER BY DEFAULT_RATE DESC
