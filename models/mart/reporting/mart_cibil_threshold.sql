@@ -14,7 +14,7 @@ COUNT_IF (l.LOAN_STATUS = 'Default') AS TOTAL_DEFAULT_CUSTOMERS
   
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
-JOIN {{ ref('dim_credit_profile') }} l
+JOIN {{ ref('dim_loan_profile') }} l
 ON f.CUSTOMER_ID = l.CUSTOMER_ID
 
 GROUP BY CIBIL_RANGE
