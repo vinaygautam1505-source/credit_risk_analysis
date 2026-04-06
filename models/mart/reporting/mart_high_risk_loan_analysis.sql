@@ -40,7 +40,7 @@ END AS DTI_BUCKET,
 COUNT(*) AS TOTAL_CUSTOMERS,
 COUNT_IF( l.LOAN_STATUS = 'Default') AS TOTAL_DEFAULT_CUSTOMERS,
 
-COUNT_IF ( l.LOAN_STATUS = 'Default') * 1.0 / COUNT(*) AS DEFAULT_RATE
+ROUND(COUNT_IF( l.LOAN_STATUS = 'Default') * 1.0 / COUNT(*), 2) AS DEFAULT_RATE
 
 FROM {{ ref('fact_credit_risk_analysis') }} f
   JOIN {{ ref('dim_loan_profile') }} l
