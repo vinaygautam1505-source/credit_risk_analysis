@@ -26,7 +26,7 @@ models:
 
       - name: TENURE_BUCKET
         description: "tenure bucket"
-       tests:
+        tests:
           - not_null
           - accepted_values:
               arguments:
