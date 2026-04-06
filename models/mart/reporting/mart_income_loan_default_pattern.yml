@@ -11,16 +11,25 @@ models:
         description: "roi bucket"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Poor_Income', 'Medium_Income', 'High_Income', 'Excellent_Income']   
 
       - name: LOAN_BUCKET
         description: "loan bucket"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Low-Loan_Amount', 'Average_Loan_Amount', 'High_Loan_Amount', 'Highest_Loan_Amount']l
 
       - name: DTI_BUCKET
         description: "dti bucket"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Low-Dti', 'Average_Dti', 'High_Dti', 'Highest_Dti']
 
       - name: TOTAL_CUSTOMERS
         description: "Total customers in each segment"
