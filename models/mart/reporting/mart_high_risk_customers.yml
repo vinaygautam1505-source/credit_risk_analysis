@@ -13,21 +13,37 @@ models:
 
       - name: CIBIL_SCORE
         description: "customer cibil score data"
-
+        
+ 
       - name: INCOME
         description: "customer total yearly income"
 
       - name: DEBT_TO_INCOME_RATIO
         description: "debt to loan ratio i.e FOIR"
-
+       
       - name: CIBIL_RISK_BUCKET
         description: " cibil risk bucket with using diffrent flags"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Poor (<=600)', 'Average (601-700)', 'Good (701-750)', 'Excellent (>751)']
 
       - name: INCOME_RISK_BUCKET
         description: "income risk bucket with using diffrent flags"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Poor_Income', 'Medium_Income', 'High_Income', 'Excellent_Income']    
 
       - name: DTI_RISK_BUCKET
         description: "DTI risk bucket with using diffrent flags"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Low-Dti', 'Average_Dti', 'High_Dti', 'Highest_Dti']
 
       - name: FINAL_RISK_FLAG
         description: "final risk flag with using diffrent flags on diffrent conditions"
@@ -35,6 +51,6 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['High_Risk', 'Risky', 'No_Risk']
+                values: ['High_Risk', 'Average_Risk', 'No_Risk', 'Prime_Customer']
 
 
