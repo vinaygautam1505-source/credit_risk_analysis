@@ -1,0 +1,32 @@
+
+
+version: 2
+
+models:
+  - name: mart_income_loan_default_pattern
+    description: "hih income loan risk pattern analysis with number of total customers, default customersand default rates based on income, loan amount, dti"
+    columns:
+
+      - name: INCOME_BUCKET
+        description: "roi bucket"
+        tests:
+          - not_null
+
+      - name: LOAN_BUCKET
+        description: "loan bucket"
+        tests:
+          - not_null
+
+      - name: DTI_BUCKET
+        description: "dti bucket"
+        tests:
+          - not_null
+
+      - name: TOTAL_CUSTOMERS
+        description: "Total customers in each segment"
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted"
+
+      - name: DEFAULT_RATE
+        description: "Percentage of customers who defaulted in each segment"
