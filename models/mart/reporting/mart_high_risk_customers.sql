@@ -53,6 +53,5 @@ FROM {{ ref('fact_credit_risk_analysis') }} f
  JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e.CUSTOMER_ID
 
-  GROUP BY CIBIL_BUCKET, INCOME_BUCKET, DTI_BUCKET, c.CUSTOMER_ID
-  ORDER BY CUSTOMER_ID ASC
+ORDER BY CUSTOMER_ID ASC
 
