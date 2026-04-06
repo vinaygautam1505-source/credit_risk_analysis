@@ -36,5 +36,9 @@ FROM {{ ref('fact_credit_risk_analysis') }} f
   JOIN {{ ref('dim_loan_profile')}} l
   ON f.CUSTOMER_ID = l.CUSTOMER_ID
 
+       JOIN {{ ref('dim_employment')}} e
+  ON f.CUSTOMER_ID = e.CUSTOMER_ID
+
+
 GROUP BY CIBIL_BUCKET, INCOME_BUCKET
 ORDER BY DEFAULT_RATE DESC
