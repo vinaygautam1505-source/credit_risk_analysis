@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: mart_high_risk_pattern
+  - name: mart_high_risk_loan_analysis
     description: "hih risk pattern analysis with number of total customers, default customersand default rates based on loan amount, roi, tenure, cibil score, dti"
     columns:
 
