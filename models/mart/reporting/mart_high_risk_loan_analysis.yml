@@ -1,0 +1,41 @@
+
+version: 2
+
+models:
+  - name: mart_high_risk_pattern
+    description: "hih risk pattern analysis with number of total customers, default customersand default rates based on loan amount, roi, tenure, cibil score, dti"
+    columns:
+
+      - name: LOAN_BUCKET
+        description: "loan bucket"
+        tests:
+          - not_null
+
+      - name: ROI_BUCKET
+        description: "roi bucket"
+        tests:
+          - not_null
+
+      - name: TENURE_BUCKET
+        description: "tenure bucket"
+        tests:
+          - not_null
+
+      - name: CIBIL_BUCKET
+        description: "cibil score bucket"
+        tests:
+          - not_null
+
+      - name: DTI_BUCKET
+        description: "dti bucket"
+        tests:
+          - not_null
+
+      - name: TOTAL_CUSTOMERS
+        description: "Total customers in each segment"
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted"
+
+      - name: DEFAULT_RATE
+        description: "Percentage of customers who defaulted in each segment"
