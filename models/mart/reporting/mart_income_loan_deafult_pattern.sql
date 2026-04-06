@@ -1,0 +1,38 @@
+SELECT
+
+ CASE
+    WHEN e.INCOME < 300000 THEN 'Poor_Income'
+    WHEN e.INCOME < 500000 THEN 'Average_Income'
+    WHEN e.INCOME < 800000 THEN 'High_Income'
+    ELSE 'Highest_Income'
+  END AS INCOME_BUCKET,
+
+CASE
+   WHEN f.LOAN_AMOUNT < 200000 THEN 'Low-Loan_Amount'
+   WHEN f.LOAN_AMOUNT < 500000 THEN 'Average_Loan_Amount'
+   WHEN f.LOAN_AMOUNT < 750000 THEN 'High_Loan_Amount'
+   ELSE 'Highest_Loan_Amount'
+END AS LOAN_BUCKET,
+
+CASE
+   WHEN f.DEBT_TO_INCOME_RATIO < 0.300000 THEN 'Low-Dti'
+   WHEN f.DEBT_TO_INCOME_RATIO < .500000 THEN 'Average_Dti'
+   WHEN f.DEBT_TO_INCOME_RATIO < .650000 THEN 'High_Dti'
+   ELSE 'Highest_Dti'
+END AS DTI_BUCKET,
+
+COUNT(*) AS TOTAL_CUSTOMERS,
+COUNT_IF( l.LOAN_STATUS = 'Default') AS TOTAL_DEFAULT_CUSTOMERS,
+
+ROUND(COUNT_IF ( l.LOAN_STATUS = 'Default') * 1.0 / COUNT(*),4) AS DEFAULT_RATE
+
+FROM {{ ref('fact_credit_risk_analysis') }} f
+  JOIN {{ ref('dim_loan_status') }} l
+  ON f.CUSTOMER_ID = l.CUSTOMER_ID
+
+  JOIN {{ ref('dim_employment') }} e
+  ON f.CUSTOMER_ID = e.CUSTOMER_ID
+
+  GROUP BY INCOME_BUCKET, LOAN_BUCKET, DTI_BUCKET
+HAVING COUNT(*) > 50
+  ORDER BY DEFAULT_RATE DESC
