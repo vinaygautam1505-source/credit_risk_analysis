@@ -1,9 +1,9 @@
 SELECT
   
 CASE
-   WHEN f.LOAN_AMOUNT < 200000 THEN 'Low-Loan_Amount'
-   WHEN f.LOAN_AMOUNT < 500000 THEN 'Average_Loan_Amount'
-   WHEN f.LOAN_AMOUNT < 750000 THEN 'High_Loan_Amount'
+   WHEN f.LOAN_AMOUNT <= 200000 THEN 'Low-Loan_Amount'
+   WHEN f.LOAN_AMOUNT <= 500000 THEN 'Average_Loan_Amount'
+   WHEN f.LOAN_AMOUNT <= 750000 THEN 'High_Loan_Amount'
    ELSE 'Highest_Loan_Amount'
 END AS LOAN_BUCKET,
 
