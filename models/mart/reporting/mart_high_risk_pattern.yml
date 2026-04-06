@@ -9,16 +9,26 @@ models:
         description: "roi bucket"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Highest_Roi', 'High_Roi', 'Average_Roi', 'Min_Roi']
 
       - name: CIBIL_BUCKET
         description: "cibil score bucket (Poor, Average, Good, Excellent)"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Poor (<=600)', 'Average (601-700)', 'Good (701-750)', 'Excellent (>751)']
+          
 
       - name: INCOME_BUCKET
         description: "income level bucket (Low, Medium, High)"
         tests:
           - not_null
+          - accepted_values:
+              arguments:
+                values: ['Poor_Income', 'Medium_Income', 'High_Income', 'Excellent_Income']   
 
       - name: TOTAL_CUSTOMERS
         description: "Total customers in each segment"
