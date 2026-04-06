@@ -21,7 +21,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['Low-Loan_Amount', 'Average_Loan_Amount', 'High_Loan_Amount', 'Highest_Loan_Amount']l
+                values: ['Low-Loan_Amount', 'Average_Loan_Amount', 'High_Loan_Amount', 'Highest_Loan_Amount']
 
       - name: DTI_BUCKET
         description: "dti bucket"
