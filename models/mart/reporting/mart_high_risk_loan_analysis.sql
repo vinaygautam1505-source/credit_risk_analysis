@@ -7,13 +7,14 @@ CASE
    ELSE 'Highest_Loan_Amount'
 END AS LOAN_BUCKET,
 
- CASE 
-  CASE 
+ CASE
     WHEN f.INTEREST_RATE >= 20 THEN 'Highest_Roi'
     WHEN f.INTEREST_RATE >= 15 THEN 'High_Roi'
     WHEN f.INTEREST_RATE >= 10 THEN 'Average_Roi'
     ELSE 'Min_Roi'
   END AS ROI_BUCKET,
+   
+   
 
 
 CASE
