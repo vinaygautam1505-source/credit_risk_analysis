@@ -53,5 +53,5 @@ FROM {{ ref('fact_credit_risk_analysis') }} f
  JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e.CUSTOMER_ID
 
-ORDER BY CUSTOMER_ID ASC
+ORDER BY c.CUSTOMER_ID ASC
 
