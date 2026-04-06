@@ -11,6 +11,11 @@ models:
         tests:
           - not_null
 
+          'Low-Loan_Amount'
+   WHEN f.LOAN_AMOUNT <= 500000 THEN 'Average_Loan_Amount'
+   WHEN f.LOAN_AMOUNT <= 750000 THEN 'High_Loan_Amount'
+   ELSE 'Highest_Loan_Amount'
+
       - name: ROI_BUCKET
         description: "roi bucket"
         tests:
