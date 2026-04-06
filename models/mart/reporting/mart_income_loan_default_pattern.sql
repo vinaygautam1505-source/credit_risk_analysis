@@ -1,11 +1,12 @@
 SELECT
 
- CASE
-    WHEN e.INCOME < 300000 THEN 'Poor_Income'
-    WHEN e.INCOME < 500000 THEN 'Average_Income'
-    WHEN e.INCOME < 800000 THEN 'High_Income'
-    ELSE 'Highest_Income'
-  END AS INCOME_BUCKET,
+CASE
+WHEN f.CIBIL_SCORE <= 600 THEN 'Poor (<=600)'
+WHEN f.CIBIL_SCORE <= 700 THEN 'Average (601-700)'
+WHEN f.CIBIL_SCORE <= 750 THEN 'Good (701-750)'
+ELSE 'Excellent (>751)'
+END AS CIBIL_BUCKET,
+
 
 CASE
    WHEN f.LOAN_AMOUNT < 200000 THEN 'Low-Loan_Amount'
