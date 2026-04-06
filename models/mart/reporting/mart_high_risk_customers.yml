@@ -21,7 +21,7 @@ models:
       - name: DEBT_TO_INCOME_RATIO
         description: "debt to loan ratio i.e FOIR"
        
-      - name: CIBIL_RISK_BUCKET
+      - name: CIBIL_BUCKET
         description: " cibil risk bucket with using diffrent flags"
         tests:
           - not_null
@@ -29,7 +29,7 @@ models:
               arguments:
                 values: ['Poor (<=600)', 'Average (601-700)', 'Good (701-750)', 'Excellent (>751)']
 
-      - name: INCOME_RISK_BUCKET
+      - name: INCOME_BUCKET
         description: "income risk bucket with using diffrent flags"
         tests:
           - not_null
@@ -37,7 +37,7 @@ models:
               arguments:
                 values: ['Poor_Income', 'Medium_Income', 'High_Income', 'Excellent_Income']    
 
-      - name: DTI_RISK_BUCKET
+      - name: DTI_BUCKET
         description: "DTI risk bucket with using diffrent flags"
         tests:
           - not_null
