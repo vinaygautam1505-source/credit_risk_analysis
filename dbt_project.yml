@@ -17,8 +17,6 @@ models:
   
     staging:  
       +materialized: view
-      +meta:
-        on_schema_change: sync_all_columns
       +tags: ['staging']
       +persist_docs:
         relation: true
@@ -26,8 +24,6 @@ models:
 
     intermediate_mart: 
       +materialized: table
-      +mart:
-        on_schema_change: sync_all_columns
       +tags: ['intermediate']
       +persist_docs:
         relation: true
@@ -36,19 +32,17 @@ models:
           
     mart:  
       +materialized: table
-      +meta:
-        on_schema_change: sync_all_columns
       +tags: ['mart']
       +persist_docs:
         relation: true
         columns: true
 
 snapshots:
-  +materialized: snapshot
-  +mart:
-    on_schema_change: sync_all_columns
-  +unique_key: 'CUSTOMER_ID'
-  +strategy: = 'check'
+  credit_risk_analysis:
+    +target_schema: snapshots
+    +strategy: check
+    +unique_key: CUSTOMER_ID
+    +check_cols: all
 
 
 
