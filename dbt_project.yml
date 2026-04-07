@@ -3,7 +3,8 @@ version: '1.3.3'
 config-version: 2
 
 model-paths: ["models"]  
-
+snapshot-paths: ["snapshots"]
+seed-paths: ["seeds"]
 test-paths: ["test"]
 
 target-path: "target"
@@ -22,6 +23,15 @@ models:
       +persist_docs:
         relation: true
         columns: true
+
+    intermediate_mart: 
+      +materialized: table
+      +mart:
+        on_schema_change: sync_all_columns
+      +tags: ['intermediate']
+      +persist_docs:
+        relation: true
+        columns: true
   
           
     mart:  
@@ -32,6 +42,14 @@ models:
       +persist_docs:
         relation: true
         columns: true
+
+snapshots:
+  +materialized: snapshot
+  +mart:
+    on_schema_change: sync_all_columns
+  +unique_key: 'CUSTOMER_ID'
+  +strategy: = 'check'
+
 
 
 
