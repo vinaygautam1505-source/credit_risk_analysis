@@ -1,0 +1,107 @@
+version:2
+models:
+  - name: int_customer_loans
+    description: "intermediate layer tableofcustomersloan record'
+
+    columns:
+      - name: CUSTOMER_ID
+        description: "Unique customer identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: AGE
+        description: "customer current age"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "{{ column_name }} >= 21"
+
+      - name: GENDER
+        description: "customers gender identity"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Male', 'Female', 'Other']
+
+      - name: CITY
+        description: "customers current city name"
+        tests:
+          - not_null
+          
+      - name: EMPLOYMENT_STATUS
+        description: "customer employment status"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Salaried', 'Self-Employed', 'Student', 'Unemployed', 'NA']
+
+      - name: COMPANY_TYPE
+        description: "company type where customer working"
+        tests:
+          - not_null
+
+      - name: INCOME
+        description: "total income per year"
+        tests:
+          - not_null
+          
+      - name: EXISTING_LOANS
+        description: "current running obligations"
+        tests:
+          - not_null
+
+      - name: LOAN_PURPOSE
+        description: "customers loan end use "
+        tests:
+          - not_null
+
+      - name: LOAN_STATUS
+        description: "current loan status"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Paid', 'Default', 'Na']
+
+      - name: CIBIL_SCORE
+        description: "cibil score rating"
+        tests:
+          - not_null
+
+      - name: LOAN_AMOUNT
+        description: "sanctioned loan amount"
+        tests:
+          - not_null
+
+      - name: INTEREST_RATE
+        description: "interest rate per anuum"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "{{ column_name}} BETWEEN 7 AND 24"
+
+      - name: LOAN_TENURE_MONTHS
+        description: "loan tenure in months"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [12, 24, 36, 48, 60, 72]
+
+      - name: DEBT_TO_INCOME_RATIO
+        description: "foir income to emi ratio"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "{{column_name}} BETWEEN 0 AND 1"
+
+     
+
+      
+  
