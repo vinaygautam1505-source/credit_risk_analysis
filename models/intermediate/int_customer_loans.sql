@@ -23,7 +23,7 @@ FROM {{ ref('fact_credit_risk_analysis') }} f
   LEFT JOIN {{ ref('dim_customer') }} c
   ON f.CUSTOMER_ID = c.CUSTOMER_ID
 
-  LEFT JOIN {{ ref('dim_cemployment') }} e
+  LEFT JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e.CUSTOMER_ID
 
   LEFT JOIN {{ ref('dim_loan_profile') }} l
