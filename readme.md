@@ -24,7 +24,7 @@ The project follows a layered data modeling approach:
 * **Staging Layer:** 'stg_credit_risk_analysis"
 * **Fact Table:** 'fact_credit_risk_analysis'
 * **Dimension Table:** 'dim_loan_profile', 'dim_customer', 'dim_employment'
-* **Mart Table:** 'mart_total_risk_identification', `mart_cibil_threshold`, 'mart_high_risk_customers', 'mart_high_risk_pattern'
+* **Mart Table:** 'mart_total_risk_identification', `mart_cibil_threshold`, 'mart_high_risk_customers', 'mart_high_risk_pattern', 'mart_high_risk_loan_analysis', 'mart_income_loan_default_pattern'
 
 
 
@@ -47,11 +47,10 @@ The project follows a layered data modeling approach:
 
 ### 🔹 CIBIL Threshold
 
-* **Reject** (<600)
-* **High Risk** (600–650)
-* **Risky** (651–700)
-* **On Call** (701–725)
-* **No Risk** (>725)
+* **Poor** (<=600)
+* **Average** (601–700)
+* **Good** (701-750)
+* **Excellent** (>750)
 
 
 
@@ -69,10 +68,10 @@ This helps in identifying risk patterns across different credit score segments.
 
 ## 🔍 Key Insights
 
-* Customers with **CIBIL ≤ 600** show the highest default rates
-* Default risk decreases significantly above **700+ score**
-* Mid-range customers (650–700) require on_call(manual) review
-* High CIBIL customers are relatively safe for loan approval
+* Customers with **CIBIL ≤ 600** show the highest number of default customers.
+* Total Default Customers are 9166 and Total Default Rate is 18.33.
+* Default Rate in customers with High_Loan_Amount, Poor_Income, High_Dti is highest 0.3121.
+* Default risk is highest in customers with High_Loan_Amount, High_Tenure, and High_Dti.
 
 
 
