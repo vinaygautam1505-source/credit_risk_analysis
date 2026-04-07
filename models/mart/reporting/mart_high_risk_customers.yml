@@ -35,7 +35,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['Poor_Income', 'Medium_Income', 'High_Income', 'Excellent_Income']    
+                values: ['Poor_Income', 'Average_Income', 'High_Income', 'Excellent_Income']    
 
       - name: DTI_BUCKET
         description: "DTI risk bucket with using diffrent flags"
