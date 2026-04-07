@@ -19,7 +19,7 @@ END AS CIBIL_BUCKET,
     WHEN e.INCOME <= 300000 THEN 'Poor_Income'
     WHEN e.INCOME <= 500000 THEN 'Medium_Income'
   WHEN e.INCOME <= 800000 THEN 'High_Income'
-    ELSE 'Excellent_INCOME'
+    ELSE 'Excellent_Income'
   END AS INCOME_BUCKET,
 
   COUNT(*) AS TOTAL_CUSTOMERS,
