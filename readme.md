@@ -30,9 +30,9 @@ The project follows a layered data modeling approach:
 
 ## ⚙️ Tools
 
+* **Data Ingestion:** Airbyte
 * **Data Warehouse:** Snowflake
 * **Transformation Tool:** dbt
-* **Data Ingestion:** Airbyte
 * **Visualization:** Power BI
  
 
