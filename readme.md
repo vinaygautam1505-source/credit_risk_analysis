@@ -86,6 +86,9 @@ This helps in identifying risk patterns across different credit score segments.
 
 ## 🔄 Lineage
 
+‪
+![Lineage](docs/lineage.png)
+
 
 
 ## 👤 Author
