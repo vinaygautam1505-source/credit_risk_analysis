@@ -1,4 +1,4 @@
-version:2
+version: 2
 models:
   - name: int_customer_loans
     description: "intermediate layer table of customers loan record'
