@@ -25,10 +25,10 @@ CASE
 END AS TENURE_BUCKET,
 
     CASE 
-    WHEN f.CIBIL_SCORE <= 600 THEN 'Poor (<=600)'
-    WHEN f.CIBIL_SCORE <= 700 THEN 'Average (601-700)'
-    WHEN f.CIBIL_SCORE <= 750 THEN 'Good (701-750)'
-    ELSE 'Excellent (>751)'
+    WHEN f.CIBIL_SCORE <= 600 THEN 'Poor'
+    WHEN f.CIBIL_SCORE <= 700 THEN 'Average'
+    WHEN f.CIBIL_SCORE <= 750 THEN 'Good'
+    ELSE 'Excellent'
   END AS CIBIL_BUCKET,
 
 CASE
