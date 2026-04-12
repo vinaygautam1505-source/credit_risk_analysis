@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: mart_debt_burden_analysis
+    description: "default rate and number of default customers for high debt burden and high existing loan"
+
+    columns:
+      - name: HIGH_RISK_BURDEN_DEFAULTERS
+        description: " default customers with high risk burden"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:['HIGH_RISK', 'OTHERS']
+            
+          
+      - name: TOTAL_CUSTOMERS
+        description: "Total number of customers in each segment"
+        tests:
+          - not_null
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted in high debt burden and high existing loan category"
+        tests:
+          - not_null
+        
+      - name: DEFAULT_RATE
+        description: "customers percentage who defaulted in high debt burden and high existing loan category"
+        tests:
+          - not_null
+
+     
