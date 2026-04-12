@@ -5,19 +5,27 @@ models:
     description: "default rate and number of default customers of low cibil and low income category"
 
     columns:
-      - name: CIBIL_RANGE
-        description: " cibil range with low cibil and low income category"
+      - name: DEFAULTERS
+        description: " customers with having low cibil and low income category"
         tests:
           - not_null
           - accepted_values:
               arguments:
-                values: ['Poor', 'Average', 'Good', 'Excellent']
+                values: ['HIGH_RISK','OTHERS']
 
+      - name: TOTAL_CUSTOMERS
+        description: "Total number of customers in each segment"
+        tests:
+          - not_null
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted in low cibil and low income category"
+        tests:
+          - not_null
+        
       - name: DEFAULT_RATE
         description: "customers percentage who defaulted in low cibil and low income category"
         tests:
           - not_null
 
-      - name: TOTAL_DEFAULT_CUSTOMERS
-        description: "Number of customers who defaulted in respective category"
-        tests:
+     
