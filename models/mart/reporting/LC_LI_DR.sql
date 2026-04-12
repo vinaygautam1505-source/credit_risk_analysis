@@ -1,0 +1,17 @@
+SELECT 
+  CASE
+  WHEN f.CIBIL_SCORE <= 600 AND e.INCOME <= 300000 THEN 'HIGH_RISK'
+  ELSE 'OTHERS' 
+  END AS DEFAULTERS,
+  COUNT(*) AS TOTAL_CUSTOMERS,
+COUNT_IF(l.LOAN_STATUS='Default') AS DEFAULT_CUSTOMERS,
+ROUND(COUNT_IF(l.LOAN_STATUS='Default') * 100.0 / COUNT(*), 4) AS DEFAULT_RATE
+FROM {{ ref('fact_credit_risk_analysis') }} f
+  INNER JOIN {{ ref('dim_loan_profile') }} l
+  ON f.CUSTOMER_ID =l.CUSTOMER_ID
+
+  INNER JOIN {{ ref('dim_employment') }} e
+  ON f.CUSTOMER_ID = e. CUSTOMER_ID
+
+  GROUP BY DEFAULTERS
+  
