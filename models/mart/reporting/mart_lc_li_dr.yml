@@ -5,7 +5,7 @@ models:
     description: "default rate and number of default customers of low cibil and low income category"
 
     columns:
-      - name: DEFAULTERS
+      - name: LC_LI_DEFAULTERS
         description: " customers with having low cibil and low income category"
         tests:
           - not_null
