@@ -1,0 +1,31 @@
+
+version: 2
+models:
+  - name: mart_employment_stability_risk
+    description: "default rate and number of default customers on the basis ofemployment status"
+    columns:
+      - name: EMPLOYMENT_STATUS
+        description: " default customers on the basis of employment status"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:['Salaried', 'Self-Employed', 'Unemployed', 'Sudent', 'NA']
+            
+          
+      - name: TOTAL_CUSTOMERS
+        description: "Total number of customers in each segment"
+        tests:
+          - not_null
+
+      - name: DEFAULT_CUSTOMERS
+        description: "Number of customers who defaulted on the basis of employment status"
+        tests:
+          - not_null
+        
+      - name: DEFAULT_RATE
+        description: "customers percentage who defaulted on the basis of employment status"
+        tests:
+          - not_null
+
+     
