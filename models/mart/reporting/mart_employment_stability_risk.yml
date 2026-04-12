@@ -5,12 +5,12 @@ models:
     description: "default rate and number of default customers on the basis ofemployment status"
     columns:
       - name: EMPLOYMENT_STATUS
-        description: " default customers on the basis of employment status"
+        description: "default customers on the basis of employment status"
         tests:
           - not_null
           - accepted_values:
               arguments:
-                values:['Salaried', 'Self-Employed', 'Unemployed', 'Sudent', 'NA']
+                values: ['Salaried', 'Self-Employed', 'Unemployed', 'Student', 'NA']
             
           
       - name: TOTAL_CUSTOMERS
