@@ -5,12 +5,12 @@ models:
 
     columns:
       - name: HIGH_RISK_BURDEN_DEFAULTERS
-        description: " default customers with high risk burden"
+        description: "default customers with high risk burden"
         tests:
           - not_null
           - accepted_values:
               arguments:
-                values:['HIGH_RISK', 'OTHERS']
+                values: ['HIGH_RISK', 'OTHERS']
             
           
       - name: TOTAL_CUSTOMERS
