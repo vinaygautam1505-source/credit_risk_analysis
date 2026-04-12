@@ -9,7 +9,7 @@ SELECT
   ROUND(COUNT_IF(l.LOAN_STATUS='Default')*100.0000 / COUNT(*), 4) AS DEFAULT_RATE
 FROM {{ ref('fact_credit_risk_analysis') }} f
 INNER JOIN {{ ref('dim_loan_profile') }} l
-ON f.CUSTOER_ID = l.CUSTOMER_ID
+ON f.CUSTOMER_ID = l.CUSTOMER_ID
 
 INNER JOIN {{ ref('dim_employment') }} e
 ON f.CUSTOMER_ID = e.CUSTOMER_ID
