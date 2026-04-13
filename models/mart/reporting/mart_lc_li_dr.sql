@@ -13,5 +13,5 @@ FROM {{ ref('fact_credit_risk_analysis') }} f
   INNER JOIN {{ ref('dim_employment') }} e
   ON f.CUSTOMER_ID = e. CUSTOMER_ID
 
-  GROUP BY DEFAULTERS
+  GROUP BY LC_LI_DEFAULTERS
   
