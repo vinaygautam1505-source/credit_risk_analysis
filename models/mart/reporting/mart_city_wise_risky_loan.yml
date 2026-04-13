@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: mart_city-wise_risky_loan
+  - name: mart_city_wise_risky_loan
     description: "default rate and default customers for city wise risky loan analysis"
 
     columns:
