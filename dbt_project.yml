@@ -22,7 +22,7 @@ models:
         relation: true
         columns: true
 
-    intermediate_mart: 
+    intermediate: 
       +materialized: table
       +tags: ['intermediate']
       +persist_docs:
