@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: 'source_credit_risk_analysis'
+  - name: source_credit_risk_analysis
     database: CREDIT_RISK_ANALYSIS
     schema: RAW_AIRBYTE
     tables:
